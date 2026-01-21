@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Library/Project/rabbitmq-organization-service/.vs/rabbitmq-organization-service
+/Library/Project/rabbitmq-organization-service/rabbitmq-organization-service/bin/Debug
+/Library/Project/rabbitmq-organization-service/rabbitmq-organization-service/obj
+/Services/ApplicationService/.vs/ApplicationService
+/Services/ApplicationService/ApplicationService/bin/Debug/net8.0
+/Services/ApplicationService/ApplicationService/obj
+/Services/OrganizationService/.vs/OrganizationService
+/Services/OrganizationService/OrganizationService/bin/Debug/net8.0
+/Services/OrganizationService/OrganizationService/obj

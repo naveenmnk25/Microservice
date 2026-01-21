@@ -1,0 +1,6 @@
+@OrganizationService_HostAddress = http://localhost:5149
+
+GET {{OrganizationService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

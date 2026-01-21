@@ -1,0 +1,39 @@
+ --create database OrganizationServiceDB
+
+ --use OrganizationServiceDB
+
+ CREATE TABLE Teams (
+    TeamId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TeamName NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(255),
+    CreatedAt DATETIME2 DEFAULT SYSDATETIME()
+);
+
+CREATE TABLE Members (
+    MemberId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TeamId UNIQUEIDENTIFIER NOT NULL,
+    MemberName NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(150) NOT NULL UNIQUE,
+    Role NVARCHAR(50),
+    CreatedAt DATETIME2 DEFAULT SYSDATETIME(),
+
+    CONSTRAINT FK_Members_Teams
+        FOREIGN KEY (TeamId) REFERENCES Teams(TeamId)
+);
+
+CREATE TABLE Applications (
+    ApplicationId UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    ApplicationName NVARCHAR(150) NOT NULL,
+    Description NVARCHAR(255),
+    CreatedAt DATETIME2 DEFAULT SYSDATETIME()
+);
+
+CREATE TABLE AppManagedBy (
+    AppManagedById UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    ApplicationId UNIQUEIDENTIFIER NOT NULL,
+    MemberId UNIQUEIDENTIFIER NOT NULL,
+    AssignedAt DATETIME2 DEFAULT SYSDATETIME(),
+
+    CONSTRAINT FK_AppManagedBy_Applications
+        FOREIGN KEY (ApplicationId) REFERENCES Applications(ApplicationId)
+);
